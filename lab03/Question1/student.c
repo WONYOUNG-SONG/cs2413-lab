@@ -3,7 +3,7 @@
 struct ListNode* reverseList(struct ListNode* head) {
     struct ListNode* prev = NULL;
     struct ListNode* cur = head;
-    struct ListNode* next_node =s NULL;
+    struct ListNode* next_node = NULL;
     
     while (cur != NULL){
         next_node = cur->next;
