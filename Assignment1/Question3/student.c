@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "student.h"
 #include <stdlib.h>
 
 //You are given a large integer represented as an integer array digits, where:
@@ -26,8 +26,37 @@
 //Output parameter (returnSize): set *returnSize to the number of digits in the returned array.
 
 int* plusOne(int* digits, int digitsSize, int* returnSize) {
-    // TODO: implement
-
+    int check_all_nine = 1;
+    
+    for (int i = 0; i < digitsSize; i++){
+        if (digits[i] != 9){
+            check_all_nine = 0;
+        }
+    }
+    
+    int new_size = 0;
+    if (check_all_nine == 1){
+        new_size = digitsSize + 1;
+    }
+    else {
+        new_size = digitsSize;
+    }
+    
+    int* result = (int*)malloc(new_size * sizeof(int));
+    
+    int carry = 1, shift = new_size - digitsSize;
+    for (int i = digitsSize - 1; i >= 0; i--){
+        int new_digit = digits[i] + carry;
+        carry = new_digit / 10;
+        result[i + shift] = new_digit % 10;
+    }
+    
+    if (shift == 1){
+        result[0] = 1;
+    }
+    
+    *returnSize = new_size;
+    return result;
     
 }
 
