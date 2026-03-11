@@ -34,7 +34,6 @@ static int checkAVL(struct TreeNode* node, long long low, long long high) {
         return 0;
     }
 
-    /* Strict BST check: low < node->val < high */
     if ((long long)node->val <= low || (long long)node->val >= high) {
         return -1;
     }
